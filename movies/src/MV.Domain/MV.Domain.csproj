@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Contract\**" />
+    <Compile Remove="Repository\**" />
+    <EmbeddedResource Remove="Contract\**" />
+    <EmbeddedResource Remove="Repository\**" />
+    <None Remove="Contract\**" />
+    <None Remove="Repository\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Autofac" Version="4.8.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MV.Common.Cqrs.Core\MV.Common.Cqrs.Core.csproj" />
+    <ProjectReference Include="..\MV.Common.Repository.Contracts.Core\MV.Common.Repository.Contracts.Core.csproj" />
+  </ItemGroup>
+
+</Project>
