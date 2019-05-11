@@ -22,4 +22,10 @@
     <ProjectReference Include="..\MV.Common.Repository.Contracts.Core\MV.Common.Repository.Contracts.Core.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Models\" />
+    <Folder Include="Commands\" />
+    <Folder Include="Commands\User\" />
+    <Folder Include="CommandHandlers\" />
+  </ItemGroup>
 </Project>

@@ -1,6 +1,5 @@
 using System.Reflection;
 using Autofac;
-using MV.ApplicationService.Configuration;
 using MV.ApplicationService.InjectionModules;
 using MV.DbEFCore.Repositories;
 using MV.Infrastructure.InjectionModules;
@@ -32,13 +31,7 @@ namespace MV.Integration.Tests.Server
         public IConfigurationRoot Configuration { get; }
 
         public void ConfigureContainer(ContainerBuilder builder)
-        {
-            // Configuration Keys
-            var profileConfig = new ProfileConfiguration();
-            Configuration.GetSection("Profile").Bind(profileConfig);
-            builder.RegisterInstance(profileConfig).AsSelf();
-
-
+        { 
             // IoC Container Module Registration
             builder.RegisterModule(new IoCModuleApplicationService());
             builder.RegisterModule(new IoCModuleInfrastructure());

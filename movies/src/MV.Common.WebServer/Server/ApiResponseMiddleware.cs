@@ -21,7 +21,7 @@ namespace MV.Common.WebServer.Server
 
         public async Task Invoke(HttpContext context)
         {
-            if (IsSwagger(context) || IsDownload(context) || context.Request.Method == HttpMethods.Options)
+            if (IsSwagger(context) || context.Request.Method == HttpMethods.Options)
             {
                 await next(context);
             }

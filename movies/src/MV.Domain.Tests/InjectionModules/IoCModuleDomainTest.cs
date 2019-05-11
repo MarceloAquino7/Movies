@@ -1,5 +1,4 @@
 using Autofac;
-using MV.ApplicationService.Configuration;
 using MV.Domain.Tests.Factories;
 using Microsoft.Extensions.Configuration;
 
