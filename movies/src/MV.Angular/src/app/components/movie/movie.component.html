@@ -1,26 +1,26 @@
 <div class="row" *ngIf="movie">
   <div class="col-md-4">
-    <img src="https://image.tmdb.org/t/p/w500/{{movie.poster_path}}" alt="" class="thumbnail">
+    <img src="https://image.tmdb.org/t/p/w500/{{movie.Poster_Path}}" alt="" class="thumbnail">
     <p>
-      <a *ngIf="movie.homepage" href="{{movie.homepage}}" class="btn btn-info btn-block" target="_blank">Visit Movies Website</a>
+      <a *ngIf="movie.Homepage" href="{{movie.Homepage}}" class="btn btn-info btn-block" target="_blank">Visit Movies Website</a>
     </p>
   </div>
   <div class="col-md-8">
-    <h2>{{movie.title}}
+    <h2>{{movie.Title}}
       <small class="label label-warning">
-        {{movie.vote_average}}
+        {{movie.Vote_Average}}
         <i class="glyphicon glyphicon-star"></i>
       </small>
     </h2>
-    <p>{{movie.tagline}}</p>
+    <p>{{movie.Tagline}}</p>
     <p>
-      <a routerLink="/genres/{{genre.id}}/{{genre.name}}" *ngFor="let genre of movie.genres" class="label label-info m-r-md">
-        {{genre.name}}
+      <a routerLink="/genres/{{genre.Id}}/{{genre.Name}}" *ngFor="let genre of movie.genres" class="label label-info m-r-md">
+        {{genre.Name}}
       </a>
     </p>
     <h3>Overview</h3>
     <p>
-      {{movie.overview}}
+      {{movie.Overview}}
     </p>
     <!--Casts-->
     <div class="row is-flex" *ngIf="cast && cast.length > 0">
@@ -29,9 +29,9 @@
       </div>
       <div class="col-md-3" *ngFor="let actor of cast">
         <div class="thumbnail">
-          <img src="https://image.tmdb.org/t/p/w500/{{actor.profile_path}}" alt="">
+          <img src="https://image.tmdb.org/t/p/w500/{{actor.Profile_Path}}" alt="">
           <div class="caption">
-            <h6 class="text-center"><a routerLink="/actor/{{actor.id}}">{{actor.name}}</a></h6>
+            <h6 class="text-center"><a>{{actor.Name}}</a></h6>
           </div>
         </div >
       </div>
@@ -42,7 +42,7 @@
 <!--Trailer-->
 <div class="row" *ngIf="video">
   <div class="col-md-8 col-md-offset-2">
-    <h2>{{video.name}}</h2>
+    <h2>{{video.Name}}</h2>
     <div class="embed-responsive embed-responsive-16by9">
       <iframe class="embed-responsive-item" [src]="video.url"></iframe>
     </div>
@@ -54,7 +54,7 @@
   <div class="col-md-12">
     <h2>Similar Movies</h2>
   </div>
-  <div class="col-md-2" *ngFor="let movie of similarMovies">
+  <div class="col-md-2 cards-movie" *ngFor="let movie of similarMovies">
     <movie-card [movie]="movie"></movie-card>
   </div>
 </div>
@@ -65,8 +65,8 @@
   </div>
   <div class="col-md-6" *ngFor="let review of reviews">
     <blockquote>
-      <p class="text-justify">{{review.content}}</p>
-      <footer><cite title="{{review.author}}"><a href="{{review.url}}" target="_blank">{{review.author}}</a></cite></footer>
+      <p class="text-justify">{{review.Content}}</p>
+      <footer><cite title="{{review.Author}}"><a href="{{review.Url}}" target="_blank">{{review.Author}}</a></cite></footer>
     </blockquote>
   </div>
 </div>

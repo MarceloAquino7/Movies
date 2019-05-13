@@ -18,7 +18,7 @@ export class MovieComponent implements OnInit {
     private _moviesServices: MovieService,
     private router: ActivatedRoute,
     private sanitizer: DomSanitizer
-    ) {
+  ) {
 
   }
 
@@ -32,12 +32,12 @@ export class MovieComponent implements OnInit {
         this.reviews = res;
       });
       this._moviesServices.getMovieCredits(id).subscribe(res => {
-        //res = res.filter((item) => {return item.Profile_Path});
-        this.cast = res.slice(0,4);
+        res.Cast = res.Cast.filter((item) => { return item.Profile_Path });
+        this.cast = res.Cast.slice(0, 4);
       });
       this._moviesServices.getMovieVideos(id).subscribe(res => {
-        if(res && res.length) {
-          this.video = res[0];        
+        if (res && res.length) {
+          this.video = res[0];
           this.video['url'] = this.sanitizer.bypassSecurityTrustResourceUrl('https://www.youtube.com/embed/' + this.video['key']);
         }
       });

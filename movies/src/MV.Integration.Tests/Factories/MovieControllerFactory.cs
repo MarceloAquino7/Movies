@@ -27,7 +27,7 @@ namespace MV.Integration.Tests.Factories
         {
           // Act
           var response = await client.GetAsync($"{URL}/upcoming?api_key={API_KEY}&language={DEFAULT_LANGUAGE}&page=1");
-          var responseModel = JsonConvert.DeserializeObject<TMDBViewModel>(await response.Content.ReadAsStringAsync());
+          var responseModel = JsonConvert.DeserializeObject<TMDBViewModel<MovieViewModel>>(await response.Content.ReadAsStringAsync());
 
           return responseModel.Results;
         }

@@ -5,18 +5,18 @@ import { TMDBDate } from './tmdb_date';
 @JsonObject('TMDBObj')
 export class TMDBObj {
 
-    @JsonProperty('result', [Movie])
+    @JsonProperty('result', [Movie], true)
     Results: Movie[] = undefined;
 
-    @JsonProperty('page')
+    @JsonProperty('page', Number, true)
     Page: number = undefined;
 
-    @JsonProperty('total_Results')
+    @JsonProperty('total_Results', Number, true)
     Total_Results: number = undefined;
     
-    @JsonProperty('dates', [TMDBDate])
+    @JsonProperty('dates', [TMDBDate], true)
     Dates: TMDBDate = undefined;
 
-    @JsonProperty('total_Pages')
+    @JsonProperty('total_Pages', Number, true)
     Total_Pages: number = undefined;
 }

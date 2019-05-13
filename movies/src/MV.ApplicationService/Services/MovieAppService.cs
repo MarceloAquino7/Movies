@@ -19,7 +19,7 @@ namespace MV.ApplicationService.Services
   public class MovieAppService : BaseAppService, IMovieAppService
   {
 
-    private string URL = "https://api.themoviedb.org/3/movie";
+    private string URL = "https://api.themoviedb.org/3";
     private string API_KEY = "1f54bd990f1cdfb230adb312546d765d";
     private string DEFAULT_LANGUAGE = "en-US";
     private readonly HttpClient client;
@@ -34,66 +34,88 @@ namespace MV.ApplicationService.Services
       this.client = new HttpClient();
     }
 
-    public MovieViewModel Get(int id)
+    public async Task<MovieViewModel> Get(int id)
     {
-      return new MovieViewModel();
+      var response = await this.client.GetAsync($"{URL}/movie/{id}?api_key={API_KEY}&language={DEFAULT_LANGUAGE}");
+      var responseModel = JsonConvert.DeserializeObject<MovieViewModel>(await response.Content.ReadAsStringAsync());
+      return responseModel;
     }
 
     public async Task<IEnumerable<MovieViewModel>> GetUpcoming(int page)
     {
-      var response = await this.client.GetAsync($"{URL}/upcoming?api_key={API_KEY}&language={DEFAULT_LANGUAGE}&page={page}");
-      var responseModel = JsonConvert.DeserializeObject<TMDBViewModel>(await response.Content.ReadAsStringAsync());
+      var response = await this.client.GetAsync($"{URL}/movie/upcoming?api_key={API_KEY}&language={DEFAULT_LANGUAGE}&page={page}");
+      var responseModel = JsonConvert.DeserializeObject<TMDBViewModel<MovieViewModel>>(await response.Content.ReadAsStringAsync());
       return responseModel.Results;
     }
 
-    public Task<IEnumerable<MovieGenreViewModel>> GetGenres()
+    public async Task<IEnumerable<MovieGenreViewModel>> GetGenres()
     {
-      throw new NotImplementedException();
+      var response = await this.client.GetAsync($"{URL}/genre/movie/list?api_key={API_KEY}&language={DEFAULT_LANGUAGE}");
+      var responseModel = JsonConvert.DeserializeObject<MovieGenre>(await response.Content.ReadAsStringAsync());
+      return responseModel.Genres;
     }
 
-    public Task<MovieGenreViewModel> GetGenreById(int id)
+    public async Task<IEnumerable<MovieViewModel>> GetMovieByGenreId(int id)
     {
-      throw new NotImplementedException();
+      var response = await this.client.GetAsync($"{URL}/genre/{id}/movies?api_key={API_KEY}&language={DEFAULT_LANGUAGE}");
+      var responseModel = JsonConvert.DeserializeObject<TMDBViewModel<MovieViewModel>>(await response.Content.ReadAsStringAsync());
+      return responseModel.Results;
     }
 
-    public Task<IEnumerable<MovieViewModel>> GetPopulars()
+    public async Task<IEnumerable<MovieViewModel>> GetPopulars()
     {
-      throw new NotImplementedException();
+      var response = await this.client.GetAsync($"{URL}/movie/popular?api_key={API_KEY}&language={DEFAULT_LANGUAGE}");
+      var responseModel = JsonConvert.DeserializeObject<TMDBViewModel<MovieViewModel>>(await response.Content.ReadAsStringAsync());
+      return responseModel.Results;
     }
 
-    public Task<IEnumerable<MovieViewModel>> SearchMovie(string id)
+    public async Task<IEnumerable<MovieViewModel>> SearchMovie(string id)
     {
-      throw new NotImplementedException();
+      var response = await this.client.GetAsync($"{URL}/search/movie?query={id}&api_key={API_KEY}&language={DEFAULT_LANGUAGE}");
+      var responseModel = JsonConvert.DeserializeObject<TMDBViewModel<MovieViewModel>>(await response.Content.ReadAsStringAsync());
+      return responseModel.Results;
     }
 
-    public Task<IEnumerable<MovieViewModel>> GetTopRatedMovies()
+    public async Task<IEnumerable<MovieViewModel>> GetTopRatedMovies()
     {
-      throw new NotImplementedException();
+      var response = await this.client.GetAsync($"{URL}/movie/top_rated?api_key={API_KEY}&language={DEFAULT_LANGUAGE}");
+      var responseModel = JsonConvert.DeserializeObject<TMDBViewModel<MovieViewModel>>(await response.Content.ReadAsStringAsync());
+      return responseModel.Results;
     }
 
-    public Task<IEnumerable<MovieViewModel>> GetInTheaterMovies()
+    public async Task<IEnumerable<MovieViewModel>> GetInTheaterMovies()
     {
-      throw new NotImplementedException();
+      var response = await this.client.GetAsync($"{URL}/movie/now_playing?api_key={API_KEY}&language={DEFAULT_LANGUAGE}");
+      var responseModel = JsonConvert.DeserializeObject<TMDBViewModel<MovieViewModel>>(await response.Content.ReadAsStringAsync());
+      return responseModel.Results;
     }
 
-    public Task<IEnumerable<MovieViewModel>> GetSimilar(int id)
+    public async Task<IEnumerable<MovieViewModel>> GetSimilar(int id)
     {
-      throw new NotImplementedException();
+      var response = await this.client.GetAsync($"{URL}/movie/{id}/similar?api_key={API_KEY}&language={DEFAULT_LANGUAGE}");
+      var responseModel = JsonConvert.DeserializeObject<TMDBViewModel<MovieViewModel>>(await response.Content.ReadAsStringAsync());
+      return responseModel.Results;
     }
 
-    public Task<IEnumerable<MovieVideosViewModel>> GetVideos(int id)
+    public async Task<IEnumerable<MovieVideosViewModel>> GetVideos(int id)
     {
-      throw new NotImplementedException();
+      var response = await this.client.GetAsync($"{URL}/movie/{id}/videos?api_key={API_KEY}&language={DEFAULT_LANGUAGE}");
+      var responseModel = JsonConvert.DeserializeObject<TMDBViewModel<MovieVideosViewModel>>(await response.Content.ReadAsStringAsync());
+      return responseModel.Results;
     }
 
-    public Task<IEnumerable<MovieCreditsViewModel>> GetCredits(int id)
+    public async Task<MovieCreditsViewModel> GetCredits(int id)
     {
-      throw new NotImplementedException();
+      var response = await this.client.GetAsync($"{URL}/movie/{id}/credits?api_key={API_KEY}&language={DEFAULT_LANGUAGE}");
+      var responseModel = JsonConvert.DeserializeObject<MovieCreditsViewModel>(await response.Content.ReadAsStringAsync());
+      return responseModel;
     }
 
-    public Task<IEnumerable<MovieReviewsViewModel>> GetReviews(int id)
+    public async Task<IEnumerable<MovieReviewsViewModel>> GetReviews(int id)
     {
-      throw new NotImplementedException();
+      var response = await this.client.GetAsync($"{URL}/movie/{id}/reviews?api_key={API_KEY}&language={DEFAULT_LANGUAGE}");
+      var responseModel = JsonConvert.DeserializeObject<TMDBViewModel<MovieReviewsViewModel>>(await response.Content.ReadAsStringAsync());
+      return responseModel.Results;
     }
   }
 }

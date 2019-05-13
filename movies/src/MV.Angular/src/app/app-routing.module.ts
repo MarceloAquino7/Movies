@@ -4,10 +4,11 @@ import { MovieComponent } from '@components/movie/movie.component';
 import { UpcomingComponent } from '@components/upcoming/upcoming.component';
 import { AppComponent } from './app.component';
 import { GenresComponent } from '@components/genres/genres.component';
+import { MoviesComponent } from '@components/movies/movies.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'home', component: AppComponent },
+  { path: '', redirectTo: 'movies', pathMatch: 'full' },
+  { path: 'movies', component: MoviesComponent },
   { path: 'movie/:id', component: MovieComponent },
   { path: 'genres/:id/:name', component: GenresComponent },
   { path: 'upcoming', component: UpcomingComponent },

@@ -14,7 +14,10 @@ namespace MV.ApplicationService.ViewModels
     public string Poster_Path { get; set; }
     public string Original_Language { get; set; }
     public string Original_Title { get; set; }
+    public string Homepage { get; set; }
+    public string Tagline { get; set; }
     public List<int> Genre_Ids { get; set; }
+    public List<MovieGenreViewModel> Genres { get; set; }
     public string Backdrop_Path { get; set; }
     public bool Adult { get; set; }
     public string Overview { get; set; }

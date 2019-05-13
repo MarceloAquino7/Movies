@@ -36,7 +36,7 @@ namespace MV.WebApi.Controllers
     [HttpGet("genre/{id}")]
     public async Task<IActionResult> GetGenreById([FromRoute] int id)
     {
-      var data = await movieService.GetGenreById(id);
+      var data = await movieService.GetMovieByGenreId(id);
 
       return Ok(data);
     }
@@ -109,9 +109,9 @@ namespace MV.WebApi.Controllers
 
 
     [HttpGet("{id}")]
-    public IActionResult Get([FromRoute] int id)
+    public async Task<IActionResult> Get([FromRoute] int id)
     {
-      return Ok(movieService.Get(id));
+      return Ok(await movieService.Get(id));
     }
   }
 }
