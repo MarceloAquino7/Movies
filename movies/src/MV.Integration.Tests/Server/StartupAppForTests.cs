@@ -61,21 +61,6 @@ namespace MV.Integration.Tests.Server
         {
             app.UseApiResponseWrapperMiddleware();
             app.UseMvc();
-            UpdateDatabaseUsingEfCore(app);
-        }
-
-        private void UpdateDatabaseUsingEfCore(IApplicationBuilder app)
-        {
-            using (var serviceScope = app.ApplicationServices.GetService<IServiceScopeFactory>().CreateScope())
-            {
-                var database = serviceScope
-                    .ServiceProvider
-                    .GetRequiredService<EfCoreDbContext>()
-                    .Database;
-
-                database.EnsureDeleted();
-                database.Migrate();
-            }
         }
     }
 }

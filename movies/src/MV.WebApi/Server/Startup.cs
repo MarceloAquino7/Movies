@@ -52,10 +52,10 @@ namespace MV.WebApi.Server
         {
             services.AddCors();
 
-            services.AddDbContext<EfCoreDbContext>(options =>
-            {
-                options.UseSqlServer(Configuration.GetConnectionString("MVConnection"));
-            });
+            //services.AddDbContext<EfCoreDbContext>(options =>
+            //{
+            //    options.UseSqlServer(Configuration.GetConnectionString("MVConnection"));
+            //});
 
             services
                 .AddMvc(options => { options.Filters.Add(typeof(ValidateModelAttribute)); })
@@ -79,9 +79,9 @@ namespace MV.WebApi.Server
             ILoggerFactory loggerFactory,
             IHttpContextAccessor accessor)
         {
-            loggerFactory.AddSerilog();
-            app.UseMiddleware<SerilogMiddleware>();
-            app.UseApiResponseWrapperMiddleware();
+            //loggerFactory.AddSerilog();
+            //app.UseMiddleware<SerilogMiddleware>();
+            //app.UseApiResponseWrapperMiddleware();
 
             app.UseCors(builder =>
                 builder.AllowAnyOrigin()
@@ -99,20 +99,6 @@ namespace MV.WebApi.Server
             {
                 x.SwaggerEndpoint("/swagger/v1/swagger.json", "MV Documentation");
             });
-
-            UpdateDatabaseUsingEfCore(app);
-        }
-
-        private void UpdateDatabaseUsingEfCore(IApplicationBuilder app)
-        {
-            using (var serviceScope = app.ApplicationServices.GetService<IServiceScopeFactory>().CreateScope())
-            {
-                serviceScope
-                    .ServiceProvider
-                    .GetRequiredService<EfCoreDbContext>()
-                    .Database
-                    .Migrate();
-            }
         }
     }
 }

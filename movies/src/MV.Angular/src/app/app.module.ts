@@ -6,11 +6,18 @@ import * as ProvidersModule from './app.submodule.providers';
 import * as ThirdModule from './app.submodule.thirdpart';
 
 import { AppRoutingModule } from './app-routing.module';
+import { IProvider } from '@services/interfaces/iprovider.service';
+import { HttpService } from '@services/http/http.service';
 
 
 @NgModule({
   declarations: [
     ComponentsModule.AppComponent,
+    ComponentsModule.MovieCardComponent,
+    ComponentsModule.MovieComponent,
+    ComponentsModule.MoviesComponent,
+    ComponentsModule.UpcomingComponent,
+    ComponentsModule.GenresComponent
   ],
   imports: [
     AngularModule.BrowserModule,
@@ -32,9 +39,10 @@ import { AppRoutingModule } from './app-routing.module';
     AppRoutingModule
   ],
   providers: [
-    ProvidersModule.HttpService,
-    ProvidersModule.IProvider,
+    { provide: IProvider, useClass: HttpService }
   ],
-  bootstrap: [ComponentsModule.AppComponent]
+  bootstrap: [
+    ComponentsModule.AppComponent
+  ]
 })
 export class AppModule { }

@@ -16,7 +16,7 @@ namespace MV.Integration.Tests.Controllers
 
         public MovieControllerTest()
         {
-            factory = new MovieControllerFactory(client);
+            factory = new MovieControllerFactory();
         }
 
         [Test]

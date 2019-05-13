@@ -1,0 +1,25 @@
+.navbar-inverse {
+    background-color: rgb(20, 20, 20);
+}
+
+a.navbar-brand {
+    color: #ff5a00;
+}
+
+.navbar-nav > li > a {
+    color: #ff5a00;
+    background:none;
+}
+
+.navbar-nav > li > a:hover {
+    color: #ededed;
+    background: none;
+}
+
+.navbar-nav > li > a.active {
+    background: none;
+}
+
+.app-container {
+    background-color: rgba(85,86,90,0.98);
+}

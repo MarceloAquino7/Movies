@@ -8,7 +8,6 @@
       "@collectors/*":["src/app/collectors/*"],
       "@components/*":["src/app/components/*"],
       "@services/*":["src/app/services/*"],
-      "@interfaces/*":["src/app/interfaces/*"],
       "@environments/*":["src/environments/*"],
       "@node_modules/*":["node_modules/*"]
     },

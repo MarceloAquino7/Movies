@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace MV.ApplicationService.ViewModels
 {
-  public class MovieViewModel
+  public class MovieGenreViewModel
   {
     public int Id { get; set; }
     public int Vote_Count { get; set; }

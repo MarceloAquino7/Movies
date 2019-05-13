@@ -18,16 +18,16 @@ namespace MV.Integration.Tests.Factories
         private string DEFAULT_LANGUAGE = "en-US";
         private readonly HttpClient client;
 
-        public MovieControllerFactory(HttpClient client)
+        public MovieControllerFactory()
         {
-            this.client = client;
+            this.client = new HttpClient();
         }
 
         public async Task<List<MovieViewModel>> GetUpcomingMovies()
         {
           // Act
           var response = await client.GetAsync($"{URL}/upcoming?api_key={API_KEY}&language={DEFAULT_LANGUAGE}&page=1");
-          var responseModel = JsonConvert.DeserializeObject<TMDQViewModel>(await response.Content.ReadAsStringAsync());
+          var responseModel = JsonConvert.DeserializeObject<TMDBViewModel>(await response.Content.ReadAsStringAsync());
 
           return responseModel.Results;
         }
