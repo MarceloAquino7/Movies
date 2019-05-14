@@ -8,6 +8,8 @@ import * as ThirdModule from './app.submodule.thirdpart';
 import { AppRoutingModule } from './app-routing.module';
 import { IProvider } from '@services/interfaces/iprovider.service';
 import { HttpService } from '@services/http/http.service';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { SearchComponent } from './components/search/search.component';
 
 
 @NgModule({
@@ -15,9 +17,10 @@ import { HttpService } from '@services/http/http.service';
     ComponentsModule.AppComponent,
     ComponentsModule.MovieCardComponent,
     ComponentsModule.MovieComponent,
-    ComponentsModule.MoviesComponent,
     ComponentsModule.UpcomingComponent,
-    ComponentsModule.GenresComponent
+    ComponentsModule.TopratedComponent,
+    ComponentsModule.PopularsComponent,
+    SearchComponent
   ],
   imports: [
     AngularModule.BrowserModule,
@@ -36,7 +39,8 @@ import { HttpService } from '@services/http/http.service';
     ThirdModule.MatDatepickerModule,
     ThirdModule.MatNativeDateModule,
     AngularModule.HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NoopAnimationsModule
   ],
   providers: [
     { provide: IProvider, useClass: HttpService }

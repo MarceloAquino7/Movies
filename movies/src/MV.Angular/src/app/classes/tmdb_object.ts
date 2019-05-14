@@ -5,7 +5,7 @@ import { TMDBDate } from './tmdb_date';
 @JsonObject('TMDBObj')
 export class TMDBObj {
 
-    @JsonProperty('result', [Movie], true)
+    @JsonProperty('results', [Movie], true)
     Results: Movie[] = undefined;
 
     @JsonProperty('page', Number, true)
@@ -14,7 +14,7 @@ export class TMDBObj {
     @JsonProperty('total_Results', Number, true)
     Total_Results: number = undefined;
     
-    @JsonProperty('dates', [TMDBDate], true)
+    @JsonProperty('dates', TMDBDate, true)
     Dates: TMDBDate = undefined;
 
     @JsonProperty('total_Pages', Number, true)

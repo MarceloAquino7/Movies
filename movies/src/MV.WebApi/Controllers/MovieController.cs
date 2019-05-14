@@ -41,35 +41,35 @@ namespace MV.WebApi.Controllers
       return Ok(data);
     }
 
-    [HttpGet("popular")]
-    public async Task<IActionResult> GetPopulars()
+    [HttpGet("popular/{page}")]
+    public async Task<IActionResult> GetPopulars([FromRoute] int page)
     {
-      var data = await movieService.GetPopulars();
+      var data = await movieService.GetPopulars(page);
 
       return Ok(data);
     }
 
-    [HttpGet("search/{id}")]
-    public async Task<IActionResult> SearchMovie([FromRoute]string id)
+    [HttpGet("search/{id}/{page}")]
+    public async Task<IActionResult> SearchMovie([FromRoute]string id, [FromRoute] int page)
     {
-      var data = await movieService.SearchMovie(id);
+      var data = await movieService.SearchMovie(id, page);
 
       return Ok(data);
     }
 
 
-    [HttpGet("toprated")]
-    public async Task<IActionResult> GetTopRatedMovies()
+    [HttpGet("toprated/{page}")]
+    public async Task<IActionResult> GetTopRatedMovies([FromRoute] int page)
     {
-      var data = await movieService.GetTopRatedMovies();
+      var data = await movieService.GetTopRatedMovies(page);
 
       return Ok(data);
     }
 
-    [HttpGet("intheater")]
-    public async Task<IActionResult> GetInTheaterMovies()
+    [HttpGet("intheater/{page}")]
+    public async Task<IActionResult> GetInTheaterMovies([FromRoute] int page)
     {
-      var data = await movieService.GetInTheaterMovies();
+      var data = await movieService.GetInTheaterMovies(page);
 
       return Ok(data);
     }

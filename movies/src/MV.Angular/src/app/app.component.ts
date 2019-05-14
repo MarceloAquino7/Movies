@@ -10,14 +10,20 @@ import { Genre } from '@classes/genre';
 export class AppComponent implements OnInit {
   title = 'movies';
 
-  genres:Genre[] = [];
+  genres: Genre[] = [];
+  clean = false;
 
   constructor(private movieService: MovieService) { }
 
   ngOnInit() {
-    this.movieService.getGenres().subscribe(res => {
-      this.genres = res.slice(0, 20);
-    });
+  }
+
+  cleanSearch() {
+    this.clean = true;
+  }
+
+  resetClean() {
+    this.clean = false;
   }
 
 }

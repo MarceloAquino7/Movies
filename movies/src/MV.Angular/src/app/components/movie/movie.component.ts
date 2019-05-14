@@ -42,8 +42,7 @@ export class MovieComponent implements OnInit {
         }
       });
       this._moviesServices.getSimilarMovies(id).subscribe(res => {
-        console.log(res);
-        this.similarMovies = res.slice(0, 12);
+        this.similarMovies = res.Results.slice(0, 12);
       });
     })
   }

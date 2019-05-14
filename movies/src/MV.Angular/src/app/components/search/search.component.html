@@ -1,0 +1,28 @@
+<div class="jumbotron">
+  <form>
+    <div class="form-group">
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="Search for movies..." [(ngModel)]="searchStr"
+          name="searchStr" (keyup.enter)="searchMovies()">
+        <span class="input-group-btn">
+          <button class="btn btn-primary btn-site" type="button" (click)="searchMovies()">Go!</button>
+        </span>
+      </div>
+    </div>
+  </form>
+</div>
+
+<div class="is-flex" *ngIf="searchRes">
+  <h3 class="orange-text">Search Results</h3>
+  <div class="row">
+    <div class="col-sm-6 col-md-4 col-lg-3 col-xs-6 cards-movie" *ngFor="let movie of searchRes; let i = index;">
+      <movie-card [movie]="movie" type="movie">></movie-card>
+    </div>
+  </div>
+  <div class="pagin-row row">
+    <a class="pagin" (click)="movePageFirstSearch()">First</a>
+    <a class="pagin" (click)="movePageBackwardSearch()">Previous</a>
+    <a class="pagin" (click)="movePageForwardSearch()">Next</a>
+    <a class="pagin" (click)="movePageLastSearch()">Last</a>
+  </div>
+</div>

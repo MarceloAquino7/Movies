@@ -7,6 +7,7 @@ import { Genre } from '@classes/genre';
 import { Credits } from '@classes/credits';
 import { MovieVideo } from '@classes/movie_video';
 import { MovieReviews } from '@classes/movie_reviews';
+import { TMDBObj } from '@classes/tmdb_object';
 
 @Injectable({
   providedIn: 'root'
@@ -15,12 +16,12 @@ export class MovieService {
 
   constructor(private provider: IProvider) { }
 
-  getUpcoming(page: number): Observable<Movie[]> {
+  getUpcoming(page: number): Observable<TMDBObj> {
     return Observable.create(observer => {
       this.provider.get(`/movie/upcoming/${page}`).subscribe(
         response => {
           const jsonConvert: JsonConvert = new JsonConvert();
-          observer.next(jsonConvert.deserialize(response, Movie));
+          observer.next(jsonConvert.deserialize(response, TMDBObj));
         }
       );
     });
@@ -48,56 +49,56 @@ export class MovieService {
     });
   }
 
-  getPopular(): Observable<Movie[]> {
+  getPopular(page: number): Observable<TMDBObj> {
     return Observable.create(observer => {
-      this.provider.get(`/movie/popular`).subscribe(
+      this.provider.getByFilter(`/movie/popular`, { page: page}).subscribe(
         response => {
           const jsonConvert: JsonConvert = new JsonConvert();
-          observer.next(jsonConvert.deserialize(response, Movie));
+          observer.next(jsonConvert.deserialize(response, TMDBObj));
         }
       );
     });
   }
 
-  searchMovies(searchStr: string): Observable<Movie[]> {
+  searchMovies(searchStr: string, page: number): Observable<TMDBObj> {
     return Observable.create(observer => {
-      this.provider.getByFilter(`/movie/search`, { id: searchStr }).subscribe(
+      this.provider.getByFilter(`/movie/search`, { id: searchStr, page: page }).subscribe(
         response => {
           const jsonConvert: JsonConvert = new JsonConvert();
-          observer.next(jsonConvert.deserialize(response, Movie));
+          observer.next(jsonConvert.deserialize(response, TMDBObj));
         }
       );
     });
   }
 
-  getTopRatedMovies(): Observable<Movie[]> {
+  getTopRatedMovies(page: number): Observable<TMDBObj> {
     return Observable.create(observer => {
-      this.provider.get(`/movie/toprated`).subscribe(
+      this.provider.getByFilter(`/movie/toprated`, { page: page}).subscribe(
         response => {
           const jsonConvert: JsonConvert = new JsonConvert();
-          observer.next(jsonConvert.deserialize(response, Movie));
+          observer.next(jsonConvert.deserialize(response, TMDBObj));
         }
       );
     });
   }
 
-  getInTheaters(): Observable<Movie[]> {
+  getInTheaters(page: number): Observable<TMDBObj> {
     return Observable.create(observer => {
-      this.provider.get(`/movie/intheater`).subscribe(
+      this.provider.getByFilter(`/movie/intheater`, { page: page}).subscribe(
         response => {
           const jsonConvert: JsonConvert = new JsonConvert();
-          observer.next(jsonConvert.deserialize(response, Movie));
+          observer.next(jsonConvert.deserialize(response, TMDBObj));
         }
       );
     });
   }
 
-  getSimilarMovies(id: number): Observable<Movie[]> {
+  getSimilarMovies(id: number): Observable<TMDBObj> {
     return Observable.create(observer => {
       this.provider.getByFilter(`/movie/similar`, { id: id }).subscribe(
         response => {
           const jsonConvert: JsonConvert = new JsonConvert();
-          observer.next(jsonConvert.deserialize(response, Movie));
+          observer.next(jsonConvert.deserialize(response, TMDBObj));
         }
       );
     });

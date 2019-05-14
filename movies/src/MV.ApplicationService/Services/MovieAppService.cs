@@ -41,11 +41,11 @@ namespace MV.ApplicationService.Services
       return responseModel;
     }
 
-    public async Task<IEnumerable<MovieViewModel>> GetUpcoming(int page)
+    public async Task<TMDBViewModel<MovieViewModel>> GetUpcoming(int page)
     {
       var response = await this.client.GetAsync($"{URL}/movie/upcoming?api_key={API_KEY}&language={DEFAULT_LANGUAGE}&page={page}");
       var responseModel = JsonConvert.DeserializeObject<TMDBViewModel<MovieViewModel>>(await response.Content.ReadAsStringAsync());
-      return responseModel.Results;
+      return responseModel;
     }
 
     public async Task<IEnumerable<MovieGenreViewModel>> GetGenres()
@@ -62,39 +62,39 @@ namespace MV.ApplicationService.Services
       return responseModel.Results;
     }
 
-    public async Task<IEnumerable<MovieViewModel>> GetPopulars()
+    public async Task<TMDBViewModel<MovieViewModel>> GetPopulars(int page)
     {
-      var response = await this.client.GetAsync($"{URL}/movie/popular?api_key={API_KEY}&language={DEFAULT_LANGUAGE}");
+      var response = await this.client.GetAsync($"{URL}/movie/popular?api_key={API_KEY}&language={DEFAULT_LANGUAGE}&page={page}");
       var responseModel = JsonConvert.DeserializeObject<TMDBViewModel<MovieViewModel>>(await response.Content.ReadAsStringAsync());
-      return responseModel.Results;
+      return responseModel;
     }
 
-    public async Task<IEnumerable<MovieViewModel>> SearchMovie(string id)
+    public async Task<TMDBViewModel<MovieViewModel>> SearchMovie(string id, int page)
     {
-      var response = await this.client.GetAsync($"{URL}/search/movie?query={id}&api_key={API_KEY}&language={DEFAULT_LANGUAGE}");
+      var response = await this.client.GetAsync($"{URL}/search/movie?query={id}&api_key={API_KEY}&language={DEFAULT_LANGUAGE}&page={page}");
       var responseModel = JsonConvert.DeserializeObject<TMDBViewModel<MovieViewModel>>(await response.Content.ReadAsStringAsync());
-      return responseModel.Results;
+      return responseModel;
     }
 
-    public async Task<IEnumerable<MovieViewModel>> GetTopRatedMovies()
+    public async Task<TMDBViewModel<MovieViewModel>> GetTopRatedMovies(int page)
     {
-      var response = await this.client.GetAsync($"{URL}/movie/top_rated?api_key={API_KEY}&language={DEFAULT_LANGUAGE}");
+      var response = await this.client.GetAsync($"{URL}/movie/top_rated?api_key={API_KEY}&language={DEFAULT_LANGUAGE}&page={page}");
       var responseModel = JsonConvert.DeserializeObject<TMDBViewModel<MovieViewModel>>(await response.Content.ReadAsStringAsync());
-      return responseModel.Results;
+      return responseModel;
     }
 
-    public async Task<IEnumerable<MovieViewModel>> GetInTheaterMovies()
+    public async Task<TMDBViewModel<MovieViewModel>> GetInTheaterMovies(int page)
     {
-      var response = await this.client.GetAsync($"{URL}/movie/now_playing?api_key={API_KEY}&language={DEFAULT_LANGUAGE}");
+      var response = await this.client.GetAsync($"{URL}/movie/now_playing?api_key={API_KEY}&language={DEFAULT_LANGUAGE}&page={page}");
       var responseModel = JsonConvert.DeserializeObject<TMDBViewModel<MovieViewModel>>(await response.Content.ReadAsStringAsync());
-      return responseModel.Results;
+      return responseModel;
     }
 
-    public async Task<IEnumerable<MovieViewModel>> GetSimilar(int id)
+    public async Task<TMDBViewModel<MovieViewModel>> GetSimilar(int id)
     {
       var response = await this.client.GetAsync($"{URL}/movie/{id}/similar?api_key={API_KEY}&language={DEFAULT_LANGUAGE}");
       var responseModel = JsonConvert.DeserializeObject<TMDBViewModel<MovieViewModel>>(await response.Content.ReadAsStringAsync());
-      return responseModel.Results;
+      return responseModel;
     }
 
     public async Task<IEnumerable<MovieVideosViewModel>> GetVideos(int id)

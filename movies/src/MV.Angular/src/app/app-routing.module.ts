@@ -3,15 +3,15 @@ import { Routes, RouterModule } from '@angular/router';
 import { MovieComponent } from '@components/movie/movie.component';
 import { UpcomingComponent } from '@components/upcoming/upcoming.component';
 import { AppComponent } from './app.component';
-import { GenresComponent } from '@components/genres/genres.component';
-import { MoviesComponent } from '@components/movies/movies.component';
+import { TopratedComponent } from '@components/toprated/toprated.component';
+import { PopularsComponent } from '@components/populars/populars.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'movies', pathMatch: 'full' },
-  { path: 'movies', component: MoviesComponent },
+  { path: '', redirectTo: 'upcoming', pathMatch: 'full' },
   { path: 'movie/:id', component: MovieComponent },
-  { path: 'genres/:id/:name', component: GenresComponent },
   { path: 'upcoming', component: UpcomingComponent },
+  { path: 'top-rated', component: TopratedComponent },
+  { path: 'populars', component: PopularsComponent },
 ];
 
 @NgModule({

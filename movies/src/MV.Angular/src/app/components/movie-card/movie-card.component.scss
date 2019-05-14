@@ -1,5 +1,6 @@
 img {
     width: 100%;
+    max-height: 280px;
 }
 .card .card-title {
     font-size: 15px;
@@ -10,4 +11,8 @@ img {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+.card-background {
+    background-color: rgb(20, 20, 20);   
 }
