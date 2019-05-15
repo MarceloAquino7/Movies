@@ -20,6 +20,7 @@ import { SearchComponent } from './components/search/search.component';
     ComponentsModule.UpcomingComponent,
     ComponentsModule.TopratedComponent,
     ComponentsModule.PopularsComponent,
+    ComponentsModule.GenresComponent,
     SearchComponent
   ],
   imports: [

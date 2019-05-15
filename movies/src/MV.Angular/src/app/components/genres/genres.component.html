@@ -1,0 +1,8 @@
+<div class="is-flex" *ngIf="movies">
+  <h3 class="orange-text">{{Title}}</h3>
+  <div class="row">
+    <div class="col-sm-6 col-md-4 col-lg-3 col-xs-6 cards-movie" *ngFor="let movie of movies; let i = index;">
+      <movie-card [movie]="movie"></movie-card>
+    </div>
+  </div>
+</div>

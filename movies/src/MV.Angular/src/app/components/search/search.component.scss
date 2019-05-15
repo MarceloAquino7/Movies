@@ -4,12 +4,17 @@
 
 .pagin {
     margin-right: 7px;
+    color: #ff5a00;
 }
 
 .pagin-row {
     float: right;
     margin-right: 9px;
 }
+
+.orange-text {
+    color: #ff5a00;
+  }
 
 .jumbotron {
     background-color: rgba(85,86,90,0.98);
@@ -21,6 +26,7 @@
 .btn-site {
     background-color: rgb(20, 20, 20);
     color: #ff5a00;
+    border: none;
 }
 
 

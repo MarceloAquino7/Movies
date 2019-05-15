@@ -1,11 +1,21 @@
 
 .pagin {
     margin-right: 7px;
+    color: #ff5a00;
 }
+
+.orange-text {
+    color: #ff5a00;
+  }
 
 .pagin-row {
     float: right;
     margin-right: 9px;
+}
+
+.cards-movie {
+    max-height: 473px;
+    min-height: 473px;
 }
 
 .is-flex{

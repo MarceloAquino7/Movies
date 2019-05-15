@@ -2,9 +2,23 @@
     background-color: rgb(20, 20, 20);
 }
 
+.orange-text {
+  color: #ff5a00;
+}
+
 .is-flex{
   margin-left:45px;
   margin-right:45px;
+}
+
+.space-head {
+  margin-top: 75px;
+}
+
+.nav-stacked > a {
+  background-color: rgb(24, 24, 24);
+  color: #ff5a00;
+  border: none;
 }
 
 .navbar-toggle{

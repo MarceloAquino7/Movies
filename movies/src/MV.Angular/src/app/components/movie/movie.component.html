@@ -1,6 +1,6 @@
 <div class="row is-flex" *ngIf="movie">
   <div class="col-md-4">
-    <img src="https://image.tmdb.org/t/p/w500/{{movie.Poster_Path}}" alt="" class="thumbnail">
+    <img src="https://image.tmdb.org/t/p/w500/{{movie.Poster_Path}}" alt="" class="thumbnail no-background">
     <p>
       <a *ngIf="movie.Homepage" href="{{movie.Homepage}}" class="btn btn-info btn-block btn-site" target="_blank">Visit Movies Website</a>
     </p>
@@ -13,6 +13,11 @@
       </small>
     </h2>
     <p>{{movie.Tagline}}</p>
+    <p>
+      <a routerLink="/genres/{{genre.Id}}/{{genre.Name}}" *ngFor="let genre of movie.Genres" class="label label-info m-r-md">
+        {{genre.Name}}
+      </a>
+    </p>
     <h3>Overview</h3>
     <p>
       {{movie.Overview}}
@@ -26,7 +31,7 @@
         <div class="thumbnail card-background">
           <img src="https://image.tmdb.org/t/p/w500/{{actor.Profile_Path}}" alt="">
           <div class="caption">
-            <h6 class="text-center"><a>{{actor.Name}}</a></h6>
+            <h6 class="text-center"><a class="white-text">{{actor.Name}}</a></h6>
           </div>
         </div >
       </div>

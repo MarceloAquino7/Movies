@@ -12,6 +12,7 @@ export class MovieComponent implements OnInit {
   movie: Object;
   reviews: Array<Object>;
   similarMovies: Array<Object>;
+  genres: Array<Object>;
   cast: Array<Object>;
   video: Object;
   constructor(
@@ -25,6 +26,11 @@ export class MovieComponent implements OnInit {
   ngOnInit() {
     this.router.params.subscribe((params) => {
       const id = params['id'];
+
+      this._moviesServices.getGenres().subscribe(genres => {
+        this.genres = genres;
+      });
+
       this._moviesServices.getMovie(id).subscribe(movie => {
         this.movie = movie;
       });

@@ -4,8 +4,18 @@
     margin-top:10px;
 }
 
+.orange-text {
+    color: #ff5a00;
+  }
+
+.cards-movie {
+    max-height: 473px;
+    min-height: 473px;
+}
+
 .pagin {
     margin-right: 7px;
+    color: #ff5a00;
 }
 
 .pagin-row {
@@ -16,6 +26,7 @@
 .btn-site {
     background-color: rgb(20, 20, 20);
     color: #ff5a00;
+    border: none;
 }
 
 .active-cyan-2 input[type=search]:focus:not([readonly]) {
