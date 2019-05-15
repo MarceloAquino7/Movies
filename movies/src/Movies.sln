@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27703.2035
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28803.156
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5 - Tests", "5 - Tests", "{821B19D5-EEFA-48F7-A171-D07DEC827E1F}"
 EndProject
@@ -40,6 +40,27 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MV.Common.Logger.Serilog", "MV.Common.Logger.Serilog\MV.Common.Logger.Serilog.csproj", "{AF0FA655-42D6-466D-918B-D43B39BE75AD}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MV.Common.WebServer", "MV.Common.WebServer\MV.Common.WebServer.csproj", "{9DC59548-4C0E-48D2-B9B2-94106C48D846}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "MV.Angular", "MV.Angular\", "{F7A4F707-02F6-4AED-AC48-8D07212E6B9A}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_49442"
+		Debug.AspNetCompiler.PhysicalPath = "MV.Angular\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_49442\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_49442"
+		Release.AspNetCompiler.PhysicalPath = "MV.Angular\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_49442\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "49442"
+		SlnRelativePath = "MV.Angular\"
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -99,6 +120,10 @@ Global
 		{9DC59548-4C0E-48D2-B9B2-94106C48D846}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9DC59548-4C0E-48D2-B9B2-94106C48D846}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9DC59548-4C0E-48D2-B9B2-94106C48D846}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F7A4F707-02F6-4AED-AC48-8D07212E6B9A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F7A4F707-02F6-4AED-AC48-8D07212E6B9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F7A4F707-02F6-4AED-AC48-8D07212E6B9A}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{F7A4F707-02F6-4AED-AC48-8D07212E6B9A}.Release|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -117,6 +142,7 @@ Global
 		{DC87CFBF-E83D-4CC1-832F-4FBC84FB230B} = {115FD350-5D60-4FC0-9C23-DB3F09D1F59A}
 		{AF0FA655-42D6-466D-918B-D43B39BE75AD} = {115FD350-5D60-4FC0-9C23-DB3F09D1F59A}
 		{9DC59548-4C0E-48D2-B9B2-94106C48D846} = {115FD350-5D60-4FC0-9C23-DB3F09D1F59A}
+		{F7A4F707-02F6-4AED-AC48-8D07212E6B9A} = {582243C8-6E29-43D8-89E6-F9E6B0745C51}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F8A1BAD0-E53E-4F05-B6BB-6FBD417C98F0}

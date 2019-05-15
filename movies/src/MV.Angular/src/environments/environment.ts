@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  baseURL: 'http://localhost:5201/api'
+  baseURL: 'https://arctouchmoviesapi.azurewebsites.net/api'
 };
 
 /*
