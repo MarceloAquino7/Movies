@@ -40,10 +40,6 @@ namespace MV.Integration.Tests.Server
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<EfCoreDbContext>(options =>
-            {
-                options.UseSqlServer(Configuration.GetConnectionString("MVConnection"));
-            });
 
             services.AddMvc().AddJsonOptions(opt =>
             {
@@ -59,7 +55,6 @@ namespace MV.Integration.Tests.Server
             ILoggerFactory loggerFactory,
             IHttpContextAccessor accessor)
         {
-            app.UseApiResponseWrapperMiddleware();
             app.UseMvc();
         }
     }

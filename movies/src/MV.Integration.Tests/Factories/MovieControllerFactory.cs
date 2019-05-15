@@ -11,25 +11,50 @@ using Newtonsoft.Json;
 
 namespace MV.Integration.Tests.Factories
 {
-    public class MovieControllerFactory
+  public class MovieControllerFactory
+  {
+    private string URL = "/api/movie";
+    private readonly HttpClient client;
+
+    public MovieControllerFactory(HttpClient client)
     {
-        private string URL = "https://api.themoviedb.org/3/movie";
-        private string API_KEY = "1f54bd990f1cdfb230adb312546d765d";
-        private string DEFAULT_LANGUAGE = "en-US";
-        private readonly HttpClient client;
-
-        public MovieControllerFactory()
-        {
-            this.client = new HttpClient();
-        }
-
-        public async Task<List<MovieViewModel>> GetUpcomingMovies()
-        {
-          // Act
-          var response = await client.GetAsync($"{URL}/upcoming?api_key={API_KEY}&language={DEFAULT_LANGUAGE}&page=1");
-          var responseModel = JsonConvert.DeserializeObject<TMDBViewModel<MovieViewModel>>(await response.Content.ReadAsStringAsync());
-
-          return responseModel.Results;
-        }
+      this.client = client;
     }
+
+    public async Task<List<MovieViewModel>> GetUpcomingMovies()
+    {
+      // Act
+      var response = await client.GetAsync($"{URL}/upcoming/1");
+      var responseModel = JsonConvert.DeserializeObject<TMDBViewModel<MovieViewModel>>(await response.Content.ReadAsStringAsync());
+
+      return responseModel.Results;
+    }
+
+    public async Task<List<MovieViewModel>> GetPopularsMovies()
+    {
+      // Act
+      var response = await client.GetAsync($"{URL}/popular/1");
+      var responseModel = JsonConvert.DeserializeObject<TMDBViewModel<MovieViewModel>>(await response.Content.ReadAsStringAsync());
+
+      return responseModel.Results;
+    }
+
+    public async Task<List<MovieViewModel>> GetTopRatedMovies()
+    {
+      // Act
+      var response = await client.GetAsync($"{URL}/toprated/1");
+      var responseModel = JsonConvert.DeserializeObject<TMDBViewModel<MovieViewModel>>(await response.Content.ReadAsStringAsync());
+
+      return responseModel.Results;
+    }
+
+    public async Task<List<MovieViewModel>> GetInTheaterMovies()
+    {
+      // Act
+      var response = await client.GetAsync($"{URL}/intheater/1");
+      var responseModel = JsonConvert.DeserializeObject<TMDBViewModel<MovieViewModel>>(await response.Content.ReadAsStringAsync());
+
+      return responseModel.Results;
+    }
+  }
 }

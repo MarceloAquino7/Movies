@@ -52,11 +52,6 @@ namespace MV.WebApi.Server
         {
             services.AddCors();
 
-            //services.AddDbContext<EfCoreDbContext>(options =>
-            //{
-            //    options.UseSqlServer(Configuration.GetConnectionString("MVConnection"));
-            //});
-
             services
                 .AddMvc(options => { options.Filters.Add(typeof(ValidateModelAttribute)); })
                 .AddJsonOptions(opt =>
@@ -79,9 +74,6 @@ namespace MV.WebApi.Server
             ILoggerFactory loggerFactory,
             IHttpContextAccessor accessor)
         {
-            //loggerFactory.AddSerilog();
-            //app.UseMiddleware<SerilogMiddleware>();
-            //app.UseApiResponseWrapperMiddleware();
 
             app.UseCors(builder =>
                 builder.AllowAnyOrigin()
