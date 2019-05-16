@@ -17,7 +17,7 @@ GIT
 
 
 # 0 - Core
-Hvp.Common.Cqrs.Core is a basic set of interfaces for building a command and event driven CQRS application.
+MV.Common.Cqrs.Core is a basic set of interfaces for building a command and event driven CQRS application.
 
 Commands are created and dispatched by the application,
 They are received by command handlers which apply behaviors on the domain model
