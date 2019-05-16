@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Database\**" />
+    <EmbeddedResource Remove="Database\**" />
+    <None Remove="Database\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Autofac" Version="4.8.1" />
+    <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="4.3.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Http" Version="2.2.0" />
+    <PackageReference Include="Serilog" Version="2.8.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MV.ApplicationService\MV.ApplicationService.csproj" />
+    <ProjectReference Include="..\MV.DbEFCore\MV.DbEFCore.csproj" />
+    <ProjectReference Include="..\MV.Common.Cqrs.Core\MV.Common.Cqrs.Core.csproj" />
+    <ProjectReference Include="..\MV.Common.Repository.Contracts.Core\MV.Common.Repository.Contracts.Core.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,52 @@
+.jumbotron {
+    background-color: dimgrey;
+    border-radius: 100px;
+    margin-top:10px;
+}
+
+.orange-text {
+    color: #ff5a00;
+  }
+
+.cards-movie {
+    max-height: 473px;
+    min-height: 473px;
+}
+
+.pagin {
+    margin-right: 7px;
+    color: #ff5a00;
+}
+
+.pagin-row {
+    float: right;
+    margin-right: 9px;
+}
+
+.btn-site {
+    background-color: rgb(20, 20, 20);
+    color: #ff5a00;
+    border: none;
+}
+
+.active-cyan-2 input[type=search]:focus:not([readonly]) {
+    border-bottom: 1px solid #4dd0e1;
+    box-shadow: 0 1px 0 0 #4dd0e1;
+}
+
+.active-cyan input[type=search] {
+    border-bottom: 1px solid #4dd0e1;
+    box-shadow: 0 1px 0 0 #4dd0e1;
+}
+
+.jumbotron {
+    background-color: rgba(85,86,90,0.98);
+    margin-top: 35px;
+    padding-left: 45px;
+    padding-right: 45px;
+}
+
+.is-flex{
+    margin-left:45px;
+    margin-right:45px;
+}

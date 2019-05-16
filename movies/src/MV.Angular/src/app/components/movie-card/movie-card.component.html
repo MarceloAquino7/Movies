@@ -1,0 +1,17 @@
+<div class="thumbnail card-background">
+  <img src="https://image.tmdb.org/t/p/w300/{{movie.Poster_Path}}" *ngIf="movie.Poster_Path">
+  <img src="assets/img/abstract-image.jpg" *ngIf="!movie.Poster_Path">
+  <div class="caption">
+    <h4 class="text-ellipsis">
+      <a routerLink="/movie/{{movie.Id}}" title="{{movie.Title}}">{{movie.Title}}</a>
+    </h4>
+    <p><strong>Release Date: </strong>{{movie.Release_Date | date :  mediumDate }}</p>
+    <p>
+      <a routerLink="/movie/{{movie.Id}}">View details &raquo;</a>
+      <small class="label label-success pull-right" *ngIf="movie.Vote_Average">
+        {{movie.Vote_Average}}
+        <i class="glyphicon glyphicon-star"></i>
+      </small>
+    </p>
+  </div>
+</div>

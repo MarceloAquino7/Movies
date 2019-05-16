@@ -1,0 +1,36 @@
+<header class="header">
+  <a href="" class="logo">ArcTouch - Movies</a>
+  <input class="menu-btn" type="checkbox" id="menu-btn" />
+  <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
+  <ul class="menu">
+    <li><a (click)="cleanSearch()" routerLink="/">Home</a></li>
+    <li><a (click)="cleanSearch()" routerLink="/top-rated">Top Rated</a></li>
+    <li><a (click)="cleanSearch()" routerLink="/populars">Populars</a></li>
+    <li><a (click)="cleanSearch()" routerLink="/upcoming">Upcoming Movies</a></li>
+  </ul>
+</header>
+
+
+<div class="container-fluid app-container">
+  <div class="row">
+
+    <div class="col-xs-2 col-sm-3 col-md-2 col-lg-2 space-head">
+      <ul class="nav nav-stacked">
+        <a routerLink="/genres/{{genre.Id}}/{{genre.Name}}" routerLinkActive="active" class="list-group-item"
+          *ngFor="let genre of genres">{{genre.Name}}</a>
+      </ul>
+    </div>
+
+    <div class="col-xs-10 col-sm-9 col-md-10 col-lg-10">
+      <div class="is-flex">
+        <app-search (cleaned)="resetClean()" [shouldClean]="clean"></app-search>
+
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+  <hr>
+  <footer>
+    <p>&copy; 2019 Marcelo Aquino.</p>
+  </footer>
+</div>

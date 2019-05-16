@@ -1,0 +1,14 @@
+<div class="is-flex">
+  <h3 class="orange-text">Popular Movies</h3>
+  <div class="row">
+    <div class="col-sm-3 cards-movie" *ngFor="let movie of popularList; let i = index;">
+      <movie-card [movie]="movie"></movie-card>
+    </div>
+    <div class="pagin-row row">
+      <a class="pagin" (click)="movePageFirstPopular()">First</a>
+      <a class="pagin" (click)="movePageBackwardPopular()">Previous</a>
+      <a class="pagin" (click)="movePageForwardPopular()">Next</a>
+      <a class="pagin" (click)="movePageLastPopular()">Last</a>
+    </div>
+  </div>
+</div>
